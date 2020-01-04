@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/crazyones110/Fuetify/issues"
   },
-  "homepage": "https://github.com/crazyones110/Fuetify#readme"
+  "homepage": "https://github.com/crazyones110/Fuetify#readme",
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
 }
