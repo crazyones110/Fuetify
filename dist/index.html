@@ -27,6 +27,7 @@
       --border-color-hover: #666;
       font-size: 14px;
     }
+
     html {
       font-size: 14px;
     }</style>
@@ -38,13 +39,13 @@
 
 <body>
   <div id="app">
-    <f-button icon="setting" icon-position="left">
+    <f-button icon="setting" icon-position="left" :loading="loading1" @click="loading1 = !loading1">
       按钮
     </f-button>
-    <f-button icon-position="right">
+    <f-button icon-position="right" :loading="loading1" @click="loading1 = !loading1">
       按钮
     </f-button>
-    <f-button icon="setting" icon-position="right">
+    <f-button icon="setting" icon-position="right" :loading="loading1" @click="loading1 = !loading1">
       按钮
     </f-button>
   </div>

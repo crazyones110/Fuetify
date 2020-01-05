@@ -1,7 +1,7 @@
 <template>
-  <button class="f-button" :class="{[`icon-${iconPosition}`]: true}">
-    <f-icon :name="icon" v-if="icon" class="icon"></f-icon>
-    <f-icon name="loading" class="loading"></f-icon>
+  <button class="f-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+    <f-icon :name="icon" v-if="icon && !loading" class="icon"></f-icon>
+    <f-icon name="loading" class="loading icon" v-if="loading"></f-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -12,6 +12,10 @@
 export default {
   props: {
     icon: {},
+    loading: {
+      type: Boolean,
+      default: false
+    },
     iconPosition: {
       type: String,
       default: "left",
@@ -26,10 +30,10 @@ export default {
 <style lang='scss'>
 @keyframes spin {
   0% {
-    transform: rotate(0)
+    transform: rotate(0);
   }
   100% {
-    transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 .f-button {
