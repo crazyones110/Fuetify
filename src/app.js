@@ -17,6 +17,8 @@ new Vue({
 })
 
 import chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 
 const expect = chai.expect
 // 单元测试
@@ -92,10 +94,10 @@ const expect = chai.expect
     }
   })
   fButton.$mount()
-  // 期望这个函数被执行
-  fButton.$on('click', () => {
-    console.log(1)
-  })
+  // 期望这个函数被执行, 这个匿名函数被间谍给监视了
+  const spy = chai.spy(() => {})
+  fButton.$on('click', spy)
   const button = fButton.$el
   button.click()
+  expect(spy).to.have.been.called()
 }
