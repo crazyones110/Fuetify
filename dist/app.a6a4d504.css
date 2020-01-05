@@ -2,11 +2,15 @@
 .f-button {
   font-size: var(--font-size);
   height: var(--button-height);
-  padding: 0 1em;
+  padding: 0 1rem;
   /*左边一个字，右边一个字*/
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--button-bg);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
 }
 .f-button:hover {
   border-color: var(--border-color-hover);
@@ -16,4 +20,24 @@
 }
 .f-button:focus {
   outline: none;
+}
+.f-button > .icon {
+  order: 1;
+  margin-right: 0.3rem;
+  margin-left: 0;
+}
+.f-button > .content {
+  order: 2;
+}
+.f-button.icon-right > .icon {
+  order: 2;
+  margin-left: 0.3rem;
+  margin-right: 0;
+}
+.f-button.icon-right > .content {
+  order: 1;
+}
+.f-icon {
+  width: 1rem;
+  height: 1rem;
 }

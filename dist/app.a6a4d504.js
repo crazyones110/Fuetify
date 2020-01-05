@@ -12438,7 +12438,23 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+//
+//
+//
+//
+//
+var _default = {
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator: function validator(val) {
+        return val === 'left' || val === 'right';
+      }
+    }
+  }
+};
 exports.default = _default;
         var $482a2a = exports.default || module.exports;
       
@@ -12449,10 +12465,25 @@ exports.default = _default;
         /* template */
         Object.assign($482a2a, (function () {
           var render = function() {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("button", { staticClass: "f-button" }, [_vm._v("你好")])
+  return _c(
+    "button",
+    {
+      staticClass: "f-button",
+      class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj)
+    },
+    [
+      _vm.icon
+        ? _c("f-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12487,6 +12518,78 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"C:/Users/hasee/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/icon.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: {
+    name: {
+      type: String
+    }
+  }
+};
+exports.default = _default;
+        var $c2b291 = exports.default || module.exports;
+      
+      if (typeof $c2b291 === 'function') {
+        $c2b291 = $c2b291.options;
+      }
+    
+        /* template */
+        Object.assign($c2b291, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "svg",
+    { staticClass: "f-icon", attrs: { "aria-hidden": "true" } },
+    [_c("use", { attrs: { "xlink:href": "#i-" + _vm.name } })]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$c2b291', $c2b291);
+          } else {
+            api.reload('$c2b291', $c2b291);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"C:/Users/hasee/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -12494,14 +12597,18 @@ var _vue = _interopRequireDefault(require("vue"));
 
 var _button = _interopRequireDefault(require("./button"));
 
+var _icon = _interopRequireDefault(require("./icon"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_vue.default.component('f-icon', _icon.default);
 
 _vue.default.component('f-button', _button.default);
 
 new _vue.default({
   el: '#app'
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue"}],"C:/Users/hasee/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue"}],"C:/Users/hasee/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12529,7 +12636,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10107" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9534" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

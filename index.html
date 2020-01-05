@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,11 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     #app {
       margin: 30px;
     }
+
     :root {
       --button-height: 32px;
       --font-size: 14px;
@@ -23,15 +26,35 @@
       --color: #333;
       --border-color: #999;
       --border-color-hover: #666;
+      font-size: 14px;
     }
-
+    html {
+      font-size: 14px;
+    }
+  </style>
+  <style type="text/css">
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
   </style>
 </head>
 
 <body>
   <div id="app">
-    <f-button></f-button>
+    <f-button icon="setting" icon-position='left'>
+      按钮
+    </f-button>
+    <f-button icon-position='right'>
+      按钮
+    </f-button>
+    <f-button icon="setting" icon-position='right'>
+      按钮
+    </f-button>
+    <f-icon name='download'></f-icon>
   </div>
   <script src="./src/app.js"></script>
+  <script src="//at.alicdn.com/t/font_1597883_zou7y6zj7jb.js"></script>
 </body>
+
 </html>
