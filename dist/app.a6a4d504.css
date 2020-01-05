@@ -1,4 +1,12 @@
 @charset "UTF-8";
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .f-button {
   font-size: var(--font-size);
   height: var(--button-height);
@@ -36,6 +44,9 @@
 }
 .f-button.icon-right > .content {
   order: 1;
+}
+.f-button .loading {
+  animation: spin 2s infinite linear;
 }
 .f-icon {
   width: 1rem;

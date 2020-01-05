@@ -1,6 +1,7 @@
 <template>
   <button class="f-button" :class="{[`icon-${iconPosition}`]: true}">
-    <f-icon :name='icon' v-if="icon" class="icon"></f-icon>
+    <f-icon :name="icon" v-if="icon" class="icon"></f-icon>
+    <f-icon name="loading" class="loading"></f-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -13,9 +14,9 @@ export default {
     icon: {},
     iconPosition: {
       type: String,
-      default: 'left',
+      default: "left",
       validator(val) {
-        return val === 'left' || val === 'right'
+        return val === "left" || val === "right";
       }
     }
   }
@@ -23,6 +24,14 @@ export default {
 </script>
 
 <style lang='scss'>
+@keyframes spin {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
 .f-button {
   font-size: var(--font-size);
   // font-size: 1rem;
@@ -46,23 +55,26 @@ export default {
   &:focus {
     outline: none;
   }
-  >.icon {
+  > .icon {
     order: 1;
-    margin-right: .3rem;
+    margin-right: 0.3rem;
     margin-left: 0;
   }
-  &>.content {
+  & > .content {
     order: 2;
   }
   &.icon-right {
-    >.icon {
+    > .icon {
       order: 2;
-      margin-left: .3rem;
+      margin-left: 0.3rem;
       margin-right: 0;
     }
-    >.content {
+    > .content {
       order: 1;
     }
+  }
+  .loading {
+    animation: spin 2s infinite linear;
   }
 }
 </style>
