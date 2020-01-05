@@ -12620,7 +12620,37 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+var _default = {
+  mounted: function mounted() {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = this.$el.children[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var node = _step.value;
+        var nodeName = node.nodeName.toLowerCase();
+
+        if (nodeName !== 'button') {
+          console.warn("There should only f-button inside f-button-group, but you wrote ".concat(nodeName));
+        }
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  }
+};
 exports.default = _default;
         var $263097 = exports.default || module.exports;
       

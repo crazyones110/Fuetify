@@ -6,7 +6,14 @@
 
 <script>
 export default {
-
+  mounted() {
+    for (let node of this.$el.children) {
+      const nodeName = node.nodeName.toLowerCase()
+      if (nodeName !== 'button') {
+        console.warn(`There should only f-button inside f-button-group, but you wrote ${nodeName}`)
+      }
+    }
+  }
 }
 </script>
 
@@ -16,10 +23,9 @@ export default {
   vertical-align: middle;
   > .f-button {
     border-radius: 0;
-    // &:not(:first-child) {
-    //   border-left: none;
-    // }
-    margin-left: -1px;
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
     &:first-child {
       border-top-left-radius: var(--border-radius);
       border-bottom-left-radius: var(--border-radius);

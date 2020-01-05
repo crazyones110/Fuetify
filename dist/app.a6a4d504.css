@@ -58,6 +58,8 @@
 }
 .f-button-group > .f-button {
   border-radius: 0;
+}
+.f-button-group > .f-button:not(:first-child) {
   margin-left: -1px;
 }
 .f-button-group > .f-button:first-child {
