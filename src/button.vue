@@ -9,7 +9,11 @@
 </template>
 
 <script>
+import Icon from './icon'
 export default {
+  components: {
+    'f-icon': Icon
+  },
   props: {
     icon: {},
     loading: {
@@ -46,6 +50,7 @@ export default {
   border: 1px solid var(--border-color);
   background: var(--button-bg);
   display: inline-flex;
+  // display: flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;

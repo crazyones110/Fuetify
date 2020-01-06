@@ -1,3 +1,10 @@
+.f-icon[data-v-c2b291] {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 @charset "UTF-8";
 @keyframes spin {
   0% {
@@ -47,10 +54,6 @@
 }
 .f-button .loading {
   animation: spin 2s infinite linear;
-}
-.f-icon {
-  width: 1rem;
-  height: 1rem;
 }
 .f-button-group {
   display: inline-flex;
