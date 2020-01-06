@@ -4,7 +4,7 @@
   "description": "Vue UI Framework",
   "main": "index.js",
   "scripts": {
-    "test": "npx parcel build test/* --no-cache --no-minify && npx karma start --single-run",
+    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
     "dev-test": "concurrently npm:dev-test:*",
     "test:parcel:build": "parcel build test/* --no-cache --no-minify",
     "test:karma:single": "karma start --single-run",
