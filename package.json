@@ -4,7 +4,7 @@
   "description": "Vue UI Framework",
   "main": "index.js",
   "scripts": {
-    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
+    "test": "concurrently \"parcel build test/* --no-cache --no-minify && karma start --single-run\"",
     "dev-test": "concurrently npm:dev-test:*",
     "test:parcel:build": "parcel build test/* --no-cache --no-minify",
     "test:karma:single": "karma start --single-run",
@@ -43,6 +43,7 @@
     "karma-mocha": "^1.3.0",
     "karma-sinon-chai": "^2.0.2",
     "mocha": "^7.0.0",
+    "parcel-bundler": "^1.12.4",
     "sass": "^1.24.2",
     "sinon": "^8.0.2",
     "sinon-chai": "^3.4.0",
