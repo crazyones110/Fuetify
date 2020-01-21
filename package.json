@@ -6,6 +6,7 @@
   "scripts": {
     "test": "concurrently \"parcel build test/* --no-cache --no-minify && karma start --single-run\"",
     "dev-test": "concurrently npm:dev-test:*",
+    "dev-test2": "concurrently \"parcel watch test/* --no-cache & karma start\"",
     "test:parcel:build": "parcel build test/* --no-cache --no-minify",
     "test:karma:single": "karma start --single-run",
     "dev-test:parcel": "parcel watch test/* --no-cache",
