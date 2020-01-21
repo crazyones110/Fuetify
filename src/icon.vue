@@ -7,7 +7,9 @@
 </template>
 
 <script>
+import './svg'
 export default {
+  name: 'FIcon',
   props: {
     name: {
       type: String
@@ -20,8 +22,8 @@ export default {
 .f-icon {
   width: 1em; height: 1em;
   vertical-align: -0.15em;
-  fill: currentColor;
+  // fill: currentColor;
   overflow: hidden;
-  // transform: translateY(0.9px);
+  // transform: translateY(10%);
 }
 </style>

@@ -11,6 +11,7 @@
 <script>
 import Icon from './icon'
 export default {
+  name: 'FButton',
   components: {
     'f-icon': Icon
   },
@@ -31,7 +32,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 @keyframes spin {
   0% {
     transform: rotate(0);

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'FButtonGroup',
   mounted() {
     for (let node of this.$el.children) {
       const nodeName = node.nodeName.toLowerCase()
@@ -17,7 +18,7 @@ export default {
 }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .f-button-group {
   display: inline-flex;
   vertical-align: middle;
