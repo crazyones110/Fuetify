@@ -34,15 +34,37 @@
 
 <body>
   <div id="app">
-
-    <f-row>
-      <f-col span="2"></f-col>
-      <f-col span="22"></f-col>
-    </f-row>
-    <f-row>
-      <f-col span="4"></f-col>
-      <f-col span="20"></f-col>
-    </f-row>
+    <div style="border: 1px solid black">
+      <f-row gutter="20">
+        <f-col span="2">1</f-col>
+        <f-col span="22">2</f-col>
+      </f-row>
+      <!-- <f-row gutter="20">
+        <f-col>1</f-col>
+        <f-col>2</f-col>
+        <f-col>3</f-col>
+        <f-col>4</f-col>
+      </f-row>
+      <f-row gutter="20">
+        <f-col span="2">1</f-col>
+        <f-col span="20" offset="2">2</f-col>
+      </f-row>
+      <f-row>
+        <f-col span="4">1</f-col>
+        <f-col span="18" offset="2">2</f-col>
+      </f-row>
+      <f-row>
+        <f-col span="4">1</f-col>
+        <f-col span="8" offset="2">2</f-col>
+        <f-col span="8" offset="2">3</f-col>
+      </f-row>
+      <f-row>
+        <f-col>1</f-col>
+        <f-col>2</f-col>
+        <f-col>3</f-col>
+        <f-col>4</f-col>
+      </f-row> -->
+    </div>
 
 
     <f-button icon="setting" icon-position='left' :loading="loading1" @click="loading1 = !loading1">
