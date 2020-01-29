@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :style="{marginLeft: -gutter/2+ 'px', marginRight: -gutter/2+'px'}">
+  <div class="row" :style="rowStyle" :class="rowClass">
     <slot></slot>
   </div>
 </template>
@@ -11,14 +11,23 @@ export default {
     gutter: {
       type: [Number, String],
       default: 0
+    },
+    align: {
+      type: String,
+      validator(val) {
+        return ['left', 'right', 'middle'].includes(val)
+      }
     }
   },
-  created() { // 这个时候没有儿子
-    console.log('row created')
-  },
-  beforeMount() {
-    console.log('row beforeMount')
-    console.log(this.$children)
+  computed: {
+    rowStyle() {
+      const { gutter } = this
+      return {marginLeft: -gutter/2+ 'px', marginRight: -gutter/2+'px'}
+    },
+    rowClass() {
+      const { align } = this
+      return [align && `align-${align}`]
+    }
   },
   mounted() { // 这个时候有儿子
     console.log('row mounted')
@@ -28,17 +37,15 @@ export default {
     })
   }
 }
-
-const div = document.createElement('div') // created 在内存中生成这个对象
-const childDiv = document.createElement('div') // child created
-// 但其实儿子和父亲谁先 created 无所谓的，Vue 选择了哪一种呢
-div.appendChild(childDiv) // child mounted
-document.body.appendChild(div) // mounted 把这个 div 对象挂到页面里面去
-
 </script>
 
 <style lang="sass" scoped>
   .row
     display: flex
-    // margin: 0 -10px
+    &.align-left
+      justify-content: flex-start
+    &.align-right
+      justify-content: flex-end
+    &.align-center
+      justify-content: center
 </style>

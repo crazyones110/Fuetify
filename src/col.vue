@@ -1,12 +1,10 @@
 <template>
   <div
     class="col"
-    :class="[span && `col-${span}`, offset && `offset-${offset}`]"
-    :style="{paddingLeft: gutter/2+ 'px', paddingRight: gutter/2+'px'}"
+    :class="colClasses"
+    :style="colStyle"
   >
-    <div style="border: 1px solid green;height: 100px">
-      <slot></slot>
-    </div>
+    <slot></slot>
   </div>
 </template>
 
@@ -21,25 +19,34 @@ export default {
   },
   data() {
     return {
-      gutter: 0
+      gutter: 0,
+      // colStyle: {
+      //   paddingLeft: this.gutter / 2 + 'px',
+      //   paddingRight: this.gutter / 2 + 'px',
+      // }
     }
   },
-  created() { // 这个时候没有儿子
-    console.log('col created')
-  },
-  mounted() { // 这个时候有儿子
-    console.log('col mounted')
+  computed: {
+    colClasses() {
+      return [
+        this.span && `col-${this.span}`,
+        this.offset && `offset-${this.offset}`
+        ]
+    },
+    colStyle() {
+      // gutter 变了，所以我要变了
+      return {
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px',
+      }
+    }
   }
 }
 </script>
 
 <style lang="sass" scoped>
 .col
-  // height: 100px
-  // background-color: grey
-  width: 50%
-  // border: 1px solid red
-  // padding: 0 10px
+  // width: 50%
   $class-prefix: col-
   @for $n from 1 through 24
     &.#{$class-prefix}#{$n}
