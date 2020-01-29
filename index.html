@@ -29,10 +29,22 @@
       font-size: 14px;
     }
   </style>
+
 </head>
 
 <body>
   <div id="app">
+
+    <f-row>
+      <f-col span="2"></f-col>
+      <f-col span="22"></f-col>
+    </f-row>
+    <f-row>
+      <f-col span="4"></f-col>
+      <f-col span="20"></f-col>
+    </f-row>
+
+
     <f-button icon="setting" icon-position='left' :loading="loading1" @click="loading1 = !loading1">
       按钮
     </f-button>
