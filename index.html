@@ -30,11 +30,40 @@
     }
   </style>
 </head>
-
+<style>
+  .demo {
+    background-color: #dddddd;
+    border: 1px solid #666666;
+    height: 100px;
+  }
+</style>
 <body>
   <div id="app">
-    <div style="border: 1px solid black">
-      <f-row>
+
+    <f-row>
+      <f-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo" ></div>
+      </f-col>
+      <f-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </f-col>
+      <f-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </f-col>
+      <f-col  span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </f-col>
+      <f-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </f-col>
+      <f-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </f-col>
+    </f-row>
+
+
+    <!-- <div style="border: 1px solid black">
+      <f-row gutter="20">
         <f-col span="24"
           :ipad="{span:8}"
           :narrow-pc="{span:6}"
@@ -48,7 +77,7 @@
           :wide="{span:23}"
         >2</f-col>
       </f-row>
-      <!-- <f-row gutter="20">
+      <f-row gutter="20">
         <f-col>1</f-col>
         <f-col>2</f-col>
         <f-col>3</f-col>
@@ -72,7 +101,7 @@
         <f-col>2</f-col>
         <f-col>3</f-col>
         <f-col>4</f-col>
-      </f-row> -->
+      </f-row>
     </div>
 
 
@@ -95,7 +124,7 @@
       <f-input value="王五" readonly></f-input>
       <f-input value="王五" error="姓名不能少于两个字"></f-input>
       <p>{{message}}</p>
-    </div>
+    </div> -->
   </div>
   <script src="./src/app.js"></script>
   <!-- <script src="//at.alicdn.com/t/font_1597883_tyb7frq00i.js"></script> -->
