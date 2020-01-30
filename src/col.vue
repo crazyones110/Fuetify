@@ -9,13 +9,33 @@
 </template>
 
 <script>
+const validator = val => {
+  const keys = Object.keys(val)
+  return keys.every(key => ['span', 'offset'].includes(key))
+}
 export default {
   name: 'FCol',
   props: {
     span: {
       type: [Number, String]
     },
-    offset: [Number, String]
+    offset: [Number, String],
+    ipad: {
+      type: Object,
+      validator
+    },
+    narrowPc: {
+      type: Object,
+      validator
+    },
+    pc: {
+      type: Object,
+      validator
+    },
+    wide: {
+      type: Object,
+      validator
+    },
   },
   data() {
     return {
@@ -28,9 +48,14 @@ export default {
   },
   computed: {
     colClasses() {
+      const { span, offset, ipad, narrowPc, pc, wide } = this
       return [
-        this.span && `col-${this.span}`,
-        this.offset && `offset-${this.offset}`
+        span && `col-${span}`,
+        offset && `offset-${offset}`,
+        ...(ipad ? [`col-ipad-${ipad.span}`] : []),
+        ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
+        ...(pc ? [`col-pc-${pc.span}`] : []),
+        ...(wide ? [`col-wide-${wide.span}`] : [])
         ]
     },
     colStyle() {
@@ -55,4 +80,45 @@ export default {
   @for $n from 1 through 24
     &.#{$class-prefix}#{$n}
       margin-left: ($n / 24) * 100%
+
+  @media (min-width: 577px) and (max-width: 768px)
+    $class-prefix: col-ipad-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        width: ($n / 24) * 100%
+    $class-prefix: offset-ipad-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        margin-left: ($n / 24) * 100%
+
+  @media (min-width: 769px) and (max-width: 992px)
+    $class-prefix: col-narrow-pc-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        width: ($n / 24) * 100%
+    $class-prefix: offset-narrow-pc-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        margin-left: ($n / 24) * 100%
+
+  @media (min-width: 993px) and (max-width: 1200px)
+    $class-prefix: col-pc-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        width: ($n / 24) * 100%
+    $class-prefix: offset-pc-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        margin-left: ($n / 24) * 100%
+
+  @media (min-width: 1201px)
+    $class-prefix: col-wide-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        width: ($n / 24) * 100%
+    $class-prefix: offset-wide-
+    @for $n from 1 through 24
+      &.#{$class-prefix}#{$n}
+        margin-left: ($n / 24) * 100%
+
 </style>
