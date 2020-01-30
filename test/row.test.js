@@ -45,11 +45,11 @@ describe('Row', () => {
     const Constructor = Vue.extend(Row)
     const vm = new Constructor({
       propsData: {
-        align: 'center'
+        align: 'left'
       }
     }).$mount(div)
     const el = vm.$el
-    expect(getComputedStyle(el).justifyContent).to.eq('center')
+    expect(getComputedStyle(el).justifyContent).to.eq('flex-start')
     div.remove()
     vm.$el.remove()
     vm.$destroy()
