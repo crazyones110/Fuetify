@@ -46,16 +46,29 @@ export default {
       // }
     }
   },
+  methods: {
+    createColClasses(deviceObj, deviceName = '') {
+      const colClasses = []
+      if (!deviceObj) { return colClasses }
+      if (deviceObj.span) {
+        colClasses.push(`col-${deviceName}${deviceObj.span}`)
+      }
+      if (deviceObj.offset) {
+        colClasses.push(`offset-${deviceName}${deviceObj.offset}`)
+      }
+      return colClasses
+    }
+  },
   computed: {
     colClasses() {
       const { span, offset, ipad, narrowPc, pc, wide } = this
+      const createColClasses = this.createColClasses
       return [
-        span && `col-${span}`,
-        offset && `offset-${offset}`,
-        ...(ipad ? [`col-ipad-${ipad.span}`] : []),
-        ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
-        ...(pc ? [`col-pc-${pc.span}`] : []),
-        ...(wide ? [`col-wide-${wide.span}`] : [])
+        ...createColClasses({span, offset}),
+        ...createColClasses(ipad, 'ipad-'),
+        ...createColClasses(narrowPc, 'narrow-pc-'),
+        ...createColClasses(pc, 'pc-'),
+        ...createColClasses(wide, 'wide-')
         ]
     },
     colStyle() {
