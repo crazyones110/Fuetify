@@ -39,11 +39,7 @@ export default {
   },
   data() {
     return {
-      gutter: 0,
-      // colStyle: {
-      //   paddingLeft: this.gutter / 2 + 'px',
-      //   paddingRight: this.gutter / 2 + 'px',
-      // }
+      gutter: 0
     }
   },
   methods: {
