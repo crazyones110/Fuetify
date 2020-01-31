@@ -39,7 +39,14 @@ new Vue({
   },
   methods: {
     showToast() {
-      this.$toast('show toast')
+      this.$toast('很长的文字', {
+        closeButton: {
+          text: '我知道了',
+          callback(toast) {
+            toast.log()
+          }
+        }
+      })
     }
   }
 })
