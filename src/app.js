@@ -10,6 +10,8 @@ import Header from './header'
 import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
+import Toast from './toast'
+import plugin from './plugin'
 
 Vue.component('f-icon', Icon)
 Vue.component('f-button', Button)
@@ -22,6 +24,8 @@ Vue.component('f-header', Header)
 Vue.component('f-sider', Sider)
 Vue.component('f-content', Content)
 Vue.component('f-footer', Footer)
+Vue.component('f-toast', Toast)
+Vue.use(plugin)
 
 new Vue({
   el: '#app',
@@ -32,16 +36,10 @@ new Vue({
     }
   },
   created() {
-    setTimeout(() => {
-      const event = new Event('change')
-      const inputElement = this.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      console.log('hi')
-    }, 3000)
   },
   methods: {
-    inputChange(e) {
-      console.log(e)
+    showToast() {
+      this.$toast('show toast')
     }
   }
 })
