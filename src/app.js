@@ -45,7 +45,8 @@ new Vue({
           callback(toast) {
             toast.log()
           }
-        }
+        },
+        position: 'middle'
       })
     }
   }

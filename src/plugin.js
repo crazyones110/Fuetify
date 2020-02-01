@@ -1,7 +1,8 @@
 import Toast from './toast'
 export default {
   install(Vue, options) {
-    Vue.prototype.$toast = (msg, toastOptions = {}) => { // 生成一个 toast 组件，放到 body 里面
+    // 生成一个 toast 组件，放到 body 里面
+    Vue.prototype.$toast = (msg, toastOptions = {}) => {
       const Constructor = Vue.extend(Toast) // 根据 .vue 文件创建构造函数
       const toast = new Constructor({
         propsData: toastOptions

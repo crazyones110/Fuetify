@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: 'FFooter'
+  name: 'FFooter',
+  mounted() {
+    console.log(this.$slots.default);
+  }
 }
 </script>
 
