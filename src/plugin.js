@@ -15,7 +15,7 @@ function createToast({Vue, msg, propsData, onClose}) {
   return toast
 }
 
-let currentToast // TODO current 套路
+let currentToast
 
 export default {
   install(Vue, options) {

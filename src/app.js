@@ -32,10 +32,9 @@ new Vue({
   data() {
     return {
       loading1: false,
-      message: 'hi'
+      message: 'hi',
+      currentDiv: null
     }
-  },
-  created() {
   },
   methods: {
     showToast(position) {
@@ -58,6 +57,6 @@ new Vue({
     },
     showToast3() {
       this.showToast('bottom')
-    },
+    }
   }
 })

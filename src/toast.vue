@@ -58,7 +58,6 @@ export default {
   methods: {
     updateLineStyle() {
       this.$nextTick(() => {
-        // TODO $ref, $nextTick,getComputedStyle 的使用，并且加入 Cacher
         this.$refs.line.style.height = getComputedStyle(this.$refs.wrapper).height
       })
     },
