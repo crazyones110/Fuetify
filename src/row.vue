@@ -30,7 +30,6 @@ export default {
     }
   },
   mounted() { // 这个时候有儿子
-    console.log('row mounted')
     this.$children.forEach(vm => {
       // console.log(vm)
       vm.gutter = this.gutter

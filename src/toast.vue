@@ -19,16 +19,19 @@ export default {
   name: "FToast",
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
+      type: [Boolean | Number],
+      default: 3, // TODO 默认值应该是大于1的，且不能是负数
+      validator(val) {
+        return val === false || typeof val === 'number'
+      }
     },
     autoCloseDelay: {
       type: Number,
-      default: 50
+      default: 2
     },
     closeButton: {
       type: Object,
-      default() { // TODO 工厂函数的使用,并且不应该有默认的
+      default() {
         /*
         default: {
           text: '关闭',
@@ -59,10 +62,10 @@ export default {
     if (this.autoClose) {
       setTimeout(() => {
         this.close();
-      }, this.autoCloseDelay * 1000);
+      }, this.autoClose * 1000);
     }
     this.$nextTick(() => {
-      // TODO $ref, $nextTick,getComputedStyle 的使用
+      // TODO $ref, $nextTick,getComputedStyle 的使用，并且加入 Cacher
       this.$refs.line.style.height = getComputedStyle(this.$refs.wrapper).height
     })
     // console.log(getComputedStyle(this.$refs.wrapper).height)
@@ -75,7 +78,8 @@ export default {
   },
   methods: {
     close() {
-      this.$el.remove(); // TODO 看下MDN的remove()
+      this.$el.remove();
+      this.$emit('beforeClose')
       this.$destroy();
     },
     onClickClose() {
@@ -94,6 +98,29 @@ export default {
 $font-size: 14px
 $toast-min-height: 40px
 $toast-bg: rgba(0,0,0,0.74)
+
+@keyframes slide-to-bottom
+  0%
+    transform: translate(-50%, 100%)
+    opacity: 0
+  100%
+    transform: translate(-50%, 0)
+    opacity: 1
+
+@keyframes fade-in-middle
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes slide-to-top
+  0%
+    opacity: 0
+    transform: translate(-50%, -100%)
+  100%
+    opacity: 1
+    transform: translate(-50%, 0)
+
 .toast
   font-size: $font-size
   line-height: 1.8
@@ -119,10 +146,13 @@ $toast-bg: rgba(0,0,0,0.74)
     margin-left: 16px
   &.position-top
     top: 0
+    animation: slide-to-top 1s
   &.position-middle
     top: 50%
     transform: translate(-50%, -50%)
+    animation: fade-in-middle 1s
   &.position-bottom
     bottom: 0
+    animation: slide-to-bottom 1s
 
 </style>
