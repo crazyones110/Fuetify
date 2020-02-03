@@ -38,7 +38,7 @@ new Vue({
   created() {
   },
   methods: {
-    showToast() { // TODO 写三个 button 一起测
+    showToast(position) {
       this.$toast('很长的文字', {
         closeButton: {
           text: '我知道了',
@@ -46,8 +46,18 @@ new Vue({
             toast.log()
           }
         },
-        position: 'middle'
+        autoClose: 2,
+        position
       })
-    }
+    },
+    showToast1() {
+      this.showToast('top')
+    },
+    showToast2() {
+      this.showToast('middle')
+    },
+    showToast3() {
+      this.showToast('bottom')
+    },
   }
 })

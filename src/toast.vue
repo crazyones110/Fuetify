@@ -19,27 +19,15 @@ export default {
   name: "FToast",
   props: {
     autoClose: {
-      type: [Boolean | Number],
-      default: 3, // TODO 默认值应该是大于1的，且不能是负数
+      type: [Boolean, Number],
+      default: 2,
       validator(val) {
-        return val === false || typeof val === 'number'
+        return (typeof val === 'boolean') || (typeof val === 'number' && val > 0)
       }
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 2
     },
     closeButton: {
       type: Object,
       default() {
-        /*
-        default: {
-          text: '关闭',
-          callback(){}
-        }
-        如果这里直接写一个对象，每一次初始化组件的时候, 都会用同一个选项
-        那假如这个组件改了该对象的值，另外一个也会改
-        */
         return {
           text: "关闭",
           callback: undefined
@@ -59,17 +47,8 @@ export default {
     }
   },
   mounted() {
-    if (this.autoClose) {
-      setTimeout(() => {
-        this.close();
-      }, this.autoClose * 1000);
-    }
-    this.$nextTick(() => {
-      // TODO $ref, $nextTick,getComputedStyle 的使用，并且加入 Cacher
-      this.$refs.line.style.height = getComputedStyle(this.$refs.wrapper).height
-    })
-    // console.log(getComputedStyle(this.$refs.wrapper).height)
-    // this.$refs.line.style.height = this.$refs.wrapper.style.height
+    this.execAutoClose()
+    this.updateLineStyle()
   },
   computed: {
     toastClasses() {
@@ -77,6 +56,26 @@ export default {
     }
   },
   methods: {
+    updateLineStyle() {
+      this.$nextTick(() => {
+        // TODO $ref, $nextTick,getComputedStyle 的使用，并且加入 Cacher
+        this.$refs.line.style.height = getComputedStyle(this.$refs.wrapper).height
+      })
+    },
+    execAutoClose() {
+      if (typeof this.autoClose === 'boolean' && this.autoClose === true) {
+        setTimeout(() => {
+          this.close()
+        }, 2 * 1000)
+        return
+      }
+      if (typeof this.autoClose === 'number') {
+        setTimeout(() => {
+          this.close()
+        }, this.autoClose * 1000)
+        return
+      }
+    },
     close() {
       this.$el.remove();
       this.$emit('beforeClose')
@@ -141,18 +140,21 @@ $toast-bg: rgba(0,0,0,0.74)
     padding-left: 16px
     flex-shrink: 0
   .line
-    height: 100%
     border-left: 1px solid #666
     margin-left: 16px
   &.position-top
+    border-top-left-radius: 0
+    border-top-right-radius: 0
     top: 0
-    animation: slide-to-top 1s
+    animation: slide-to-top 250ms
   &.position-middle
     top: 50%
     transform: translate(-50%, -50%)
-    animation: fade-in-middle 1s
+    animation: fade-in-middle 250ms
   &.position-bottom
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
     bottom: 0
-    animation: slide-to-bottom 1s
+    animation: slide-to-bottom 250ms
 
 </style>
