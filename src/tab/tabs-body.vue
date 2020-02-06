@@ -6,7 +6,8 @@
 
 <script>
 export default {
-  name: 'FTabsBody'
+  name: 'FTabsBody',
+  inject: ['eventBus'],
 }
 </script>
 
