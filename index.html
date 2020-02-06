@@ -32,9 +32,25 @@
 </head>
 <body>
   <div id="app">
-    <button @click='showToast1'>top</button>
-    <button @click='showToast2'>middle</button>
-    <button @click='showToast3'>bottom</button>
+    <f-tabs :selected.sync="selectedTab">
+    <!-- <f-tabs selected="selectedTab" @update:selected="selectedTab = $event"> -->
+      <f-tabs-head>
+        <template #actions>
+          <button>设置</button>
+        </template>
+        <f-tabs-item name="beauty" disabled>
+          <f-icon name="setting"></f-icon>
+          美女
+        </f-tabs-item>
+        <f-tabs-item name="finance">财经</f-tabs-item>
+        <f-tabs-item name="sports">体育</f-tabs-item>
+      </f-tabs-head>
+      <f-tabs-body>
+        <f-tabs-pane name="beauty">美女相关资讯</f-tabs-pane>
+        <f-tabs-pane name="finance">财经相关资讯</f-tabs-pane>
+        <f-tabs-pane name="sports">体育相关资讯</f-tabs-pane>
+      </f-tabs-body>
+    </f-tabs>
   </div>
   <script src="./src/app.js"></script>
   <!-- <script src="//at.alicdn.com/t/font_1597883_tyb7frq00i.js"></script> -->
