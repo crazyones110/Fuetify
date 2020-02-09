@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-item" @click="handleClick" :class="classes">
+  <div class="tabs-item" @click="handleClick" :class="classes" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -26,6 +26,7 @@ export default {
   },
   inject: ["eventBus"],
   created() {
+    this.eventBus &&
     this.eventBus.$on("update:selected", name => {
       this.active = this.name === name;
     });
@@ -35,7 +36,8 @@ export default {
       if (this.disabled) {
         return
       }
-      this.eventBus.$emit("update:selected", this.name, this);
+      this.eventBus && this.eventBus.$emit("update:selected", this.name, this)
+      this.$emit('click')
     }
   },
   computed: {
@@ -62,5 +64,5 @@ $disabled-text-color: grey
     font-weight: bold
   &.disabled
     color: $disabled-text-color
-    // cursor: 
+    cursor: not-allowed
 </style>
