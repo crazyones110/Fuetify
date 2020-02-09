@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     xxx() {
-      this.eventBus.$emit("update:selected", this.name);
+      this.eventBus.$emit("update:selected", this.name, this);
     }
   },
   computed: {
@@ -45,14 +45,15 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+$blue: blue
 .tabs-item
   padding: 0 2rem
   flex-shrink: 0
   cursor: pointer
-  border: 1px solid black
   height: 100%
   display: flex
   align-items: center
   &.active
-    background-color: red
+    color: $blue
+    font-weight: bold
 </style>
