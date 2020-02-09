@@ -35,7 +35,6 @@ export default {
     this.eventBus.$on("update:selected", name => {
       // this.selected = name
       this.$emit("update:selected", name);
-      console.log(this.selected);
     });
   },
   mounted() {
@@ -49,9 +48,9 @@ export default {
           ) {
             this.eventBus.$emit("update:selected", this.selected, item)
           }
-        });
+        })
       }
-    });
+    })
   }
 }
 </script>

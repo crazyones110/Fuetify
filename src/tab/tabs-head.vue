@@ -12,9 +12,14 @@
 export default {
   name: 'FTabsHead',
   inject: ['eventBus'],
-  created() {
-    this.eventBus.$on('update:selected', item => {
-      console.log(item)
+  mounted() {
+    this.eventBus.$on('update:selected', (item, vm) => {
+      // this.x = true // 新增一个 `更新UI任务` 到任务队列里面 // TODO 任务队列
+      const { width, height, top, left } = vm.$el.getBoundingClientRect()
+      console.log(vm.$el.getBoundingClientRect())
+      this.$refs.line.style.width = `${width}px`
+      // this.$refs.line.style.left = `${left}px` // FIXME 为什么我的left不带padding
+      this.$refs.line.style.left = `calc(${left}px - 2rem)`
     })
   }
 }
@@ -34,7 +39,8 @@ $blue: blue
     position: absolute
     bottom: 0
     border-bottom: 1px solid $blue
-    width: 100px
+    transition: all 250ms
+    // width: 100px
   .actions-wrapper
     margin-left: auto
 </style>
