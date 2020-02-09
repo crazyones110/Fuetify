@@ -66,5 +66,10 @@ new Vue({
     showToast3() {
       this.showToast('bottom')
     }
+  },
+  watch: {
+    selectedTab(newVal, oldVal) {
+      console.log(newVal, oldVal)
+    }
   }
 })

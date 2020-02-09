@@ -9,7 +9,7 @@ import Vue from 'vue'
 export default {
   name: 'FTabs',
   props: {
-    selected: { // TODO 自己试下update:xxx .sync修饰符
+    selected: {
       type: String,
       required: true
     },
@@ -30,6 +30,13 @@ export default {
     return {
       eventBus: this.eventBus
     }
+  },
+  created() {
+    this.eventBus.$on('update:selected', name => {
+      // this.selected = name
+      this.$emit('update:selected', name)
+      console.log(this.selected)
+    })
   },
   mounted() {
     // this.$emit('update:selected', 'xxx')

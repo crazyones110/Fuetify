@@ -5,23 +5,16 @@
 </template>
 
 <script>
-/**
- * 组件就是一个函数，prop就是参数，data就是内部变量
- */
-// function fn(prop1, prop2) {
-//   let data1
-//   let data2
-
-// } // TODO 加入笔记
-
 export default {
-  name: 'FTabsItem',
-  data() { // 不需要用户传值，自身维护值
+  name: "FTabsItem",
+  data() {
+    // 不需要用户传值，自身维护值
     return {
       active: false
-    }
+    };
   },
-  props: { // 需要用户（前端开发者）传值
+  props: {
+    // 需要用户（前端开发者）传值
     disabled: {
       type: Boolean,
       default: false
@@ -31,30 +24,35 @@ export default {
       required: true
     }
   },
-  inject: ['eventBus'],
+  inject: ["eventBus"],
   created() {
-    this.eventBus.$on('update:selected', name => {
-      this.active = this.name === name
-    })
+    this.eventBus.$on("update:selected", name => {
+      this.active = this.name === name;
+    });
   },
   methods: {
     xxx() {
-      this.eventBus.$emit('update:selected', this.name)
+      this.eventBus.$emit("update:selected", this.name);
     }
   },
   computed: {
     classes() {
-      const {active} = this
-      return { active }
+      const { active } = this;
+      return { active };
     }
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>
 .tabs-item
   padding: 0 2rem
   flex-shrink: 0
+  cursor: pointer
+  border: 1px solid black
+  height: 100%
+  display: flex
+  align-items: center
   &.active
     background-color: red
 </style>

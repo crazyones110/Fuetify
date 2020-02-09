@@ -10,9 +10,7 @@
 <script>
 export default {
   name: 'FTabsHead',
-  inject: ['eventBus'],
-  created() {
-  }
+  inject: ['eventBus']
 }
 </script>
 
