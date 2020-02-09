@@ -33,8 +33,8 @@ $blue: blue
   height: $tab-height
   justify-content: flex-start
   align-items: center
-  border: 1px solid red
   position: relative
+  border-bottom: 1px solid #ddd
   .line
     position: absolute
     bottom: 0
@@ -43,4 +43,8 @@ $blue: blue
     // width: 100px
   .actions-wrapper
     margin-left: auto
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 0 1rem
 </style>

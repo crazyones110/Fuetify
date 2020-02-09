@@ -35,6 +35,7 @@ export default {
 
 <style lang="sass" scoped>
 .tabs-pane
+  padding: 1rem
   &.active
-    background-color: red
+    // background-color: red
 </style>
