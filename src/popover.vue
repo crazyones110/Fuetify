@@ -1,6 +1,6 @@
 <template>
-  <div class="popover" @click.stop="changeVisible">
-    <div ref="contentWrapper" class="content-wrapper" v-if="visible" @click.stop>
+  <div class="popover" @click="onClick" ref="popover">
+    <div ref="contentWrapper" class="content-wrapper" v-if="visible">
       <slot name="content"></slot>
     </div>
     <span ref="triggerWrapper">
@@ -11,39 +11,55 @@
 
 <script>
 export default {
-  name: 'FPopover',
+  name: "FPopover",
   data() {
     return {
       visible: false
-    }
+    };
   },
   methods: {
-    changeVisible() {
-      this.visible = !this.visible
-      if (this.visible) {
-        this.$nextTick(() => {
-          document.body.appendChild(this.$refs.contentWrapper)
-          const { width, height, top, left } = this.$refs.triggerWrapper.getBoundingClientRect()
-          this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-          this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
-
-          const eventHandler = () => {
-            this.visible = false
-            document.removeEventListener('click', eventHandler)
-          }
-          document.addEventListener('click', eventHandler)
-        })
-      } else {
-        console.log('document remove');
-        // document.removeEventListener('click', eventHandler)
+    positionContent() {
+      document.body.appendChild(this.$refs.contentWrapper);
+      const {
+        width,
+        height,
+        top,
+        left
+      } = this.$refs.triggerWrapper.getBoundingClientRect();
+      this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
+      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+    },
+    eventHandler(e) {
+      if (this.$refs.popover.contains(e.target)) { return }
+      if (this.$refs.contentWrapper.contains(e.target)) { return }
+      this.close()
+    },
+    listenToDocument() {
+      document.addEventListener("click", this.eventHandler)
+    },
+    open() {
+      this.visible = true
+      this.$nextTick(() => {
+        this.positionContent()
+        this.listenToDocument()
+      })
+    },
+    close() {
+      this.visible = false
+      console.log('关闭')
+      document.removeEventListener("click", this.eventHandler)
+    },
+    onClick(e) {
+      if (this.$refs.triggerWrapper.contains(e.target)) {
+        if (this.visible) {
+          this.close()
+        } else {
+          this.open()
+        }
       }
     }
-  },
-  mounted() {
-    // console.log(this.$refs.contentWrapper)
-    // document.body.appendChild(this.$refs.contentWrapper)
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
