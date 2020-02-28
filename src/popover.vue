@@ -1,9 +1,11 @@
 <template>
-  <div class="popover" @click.stop="handleClick">
-    <div class="content-wrapper" v-if="visible" @click.stop>
+  <div class="popover" @click.stop="changeVisible">
+    <div ref="contentWrapper" class="content-wrapper" v-if="visible" @click.stop>
       <slot name="content"></slot>
     </div>
-    <slot></slot>
+    <span ref="triggerWrapper">
+      <slot></slot>
+    </span>
   </div>
 </template>
 
@@ -16,41 +18,44 @@ export default {
     }
   },
   methods: {
-    handleClick() {
+    changeVisible() {
       this.visible = !this.visible
       if (this.visible) {
-        // this.$nextTick(() => { // TODO 在冒泡阶段结束再在document上绑定监听函数
-        //   document.addEventListener('click', function x() {
-        //     this.visible = false
-        //     document.removeEventListener('click', x)
-        //     console.log('visible 变成 false')
-        //   }.bind(this))
-        // })
-        setTimeout(() => {
+        this.$nextTick(() => {
+          document.body.appendChild(this.$refs.contentWrapper)
+          const { width, height, top, left } = this.$refs.triggerWrapper.getBoundingClientRect()
+          this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+          this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+
           const eventHandler = () => {
             this.visible = false
             document.removeEventListener('click', eventHandler)
-            console.log('document 隐藏了 popover')
           }
           document.addEventListener('click', eventHandler)
-        }, 0)
+        })
       } else {
-        console.log('vm 隐藏了 popover');
+        console.log('document remove');
+        // document.removeEventListener('click', eventHandler)
       }
     }
+  },
+  mounted() {
+    // console.log(this.$refs.contentWrapper)
+    // document.body.appendChild(this.$refs.contentWrapper)
   }
 }
 </script>
 
-<style lang="sass" scoped>
-.popover
-  display: inline-block
-  vertical-align: top
-  position: relative
-  .content-wrapper
-    position: absolute
-    bottom: 100%
-    left: 0
-    border: 1px solid red
-    box-shadow: 0 0 3px rgba(0,0,0,0.5)
+<style lang="scss" scoped>
+.popover {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+.content-wrapper {
+  position: absolute;
+  border: 1px solid red;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transform: translateY(-100%);
+}
 </style>
