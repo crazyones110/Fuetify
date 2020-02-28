@@ -32,7 +32,7 @@
 </head>
 <body style="border: 2px solid red;">
   <div id="app">
-    <f-popover>
+    <f-popover position="bottom">
       <template #content>
         <div>111</div>
       </template>
@@ -40,6 +40,22 @@
     </f-popover>
 
     <f-popover>
+      <template #content>
+        <div>popover内容</div>
+      </template>
+      <template #default>
+        <f-button>点我</f-button>
+      </template>
+    </f-popover>
+    <f-popover position="left">
+      <template #content>
+        <div>popover内容</div>
+      </template>
+      <template #default>
+        <f-button>点我</f-button>
+      </template>
+    </f-popover>
+    <f-popover position="right">
       <template #content>
         <div>popover内容</div>
       </template>
