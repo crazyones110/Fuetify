@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import Icon from './icon'
+import Icon from "./icon";
 export default {
-  name: 'FButton',
+  name: "FButton",
   components: {
-    'f-icon': Icon
+    "f-icon": Icon
   },
   props: {
     icon: {},
@@ -33,6 +33,14 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+$font-size: 14px;
+$button-height: 32px;
+$button-bg: white;
+$button-active-bg: #eee;
+$border-radius: 4px;
+$color: #333;
+$border-color: #999;
+$border-color-hover: #666;
 @keyframes spin {
   0% {
     transform: rotate(0);
@@ -42,14 +50,14 @@ export default {
   }
 }
 .f-button {
-  font-size: var(--font-size);
+  font-size: $font-size;
   // font-size: 1rem;
-  height: var(--button-height);
+  height: $button-height;
   // height: calc(32 / 424 * 100vh);
   padding: 0 1rem; /*左边一个字，右边一个字*/
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  background: var(--button-bg);
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  background: $button-bg;
   display: inline-flex;
   // display: flex;
   justify-content: center;
@@ -57,10 +65,11 @@ export default {
   vertical-align: middle;
 
   &:hover {
-    border-color: var(--border-color-hover);
+    border-color: $border-color-hover;
   }
   &:active {
-    border-color: var(--border-active-bg);
+    // border-color: var(--border-active-bg);
+    background-color: $button-active-bg;
   }
   &:focus {
     outline: none;
