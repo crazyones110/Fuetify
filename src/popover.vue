@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" ref="popover" >
+  <div class="popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible"
       :class="[`position-${position}`]"
     >
