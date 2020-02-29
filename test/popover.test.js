@@ -33,4 +33,31 @@ describe('Popover', (done) => {
       })
     })
   })
+
+  xit('可以设置trigger', done => {
+    Vue.component('f-popover', Popover)
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    div.innerHTML = `
+      <f-popover trigger="hover" ref="a">
+        <template #content>
+          弹出内容
+        </template>
+        <button>点我</button>
+      </f-popover>
+    `
+    const vm = new Vue({
+      el: div
+    })
+    vm.$nextTick(() => {
+      const event = new Event('mouseenter')
+      vm.$el.dispatchEvent(event)
+      vm.$nextTick(() => {
+        const { contentWrapper } = vm.$refs.a.$refs
+        console.log(contentWrapper)
+        expect(contentWrapper).to.exist
+        done()
+      })
+    })
+  })
 })
