@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover" ref="popover" >
     <div ref="contentWrapper" class="content-wrapper" v-if="visible"
       :class="[`position-${position}`]"
     >
@@ -16,8 +16,26 @@ export default {
   name: "FPopover",
   data() {
     return {
-      visible: false
+      visible: false,
     };
+  },
+  mounted() {
+    const { popover } = this.$refs
+    if (this.trigger === 'click') {
+      popover.addEventListener('click', this.onClick)
+    } else {
+      popover.addEventListener('mouseenter', this.open)
+      popover.addEventListener('mouseleave', this.close)
+    }
+  },
+  destroyed() {
+    const { popover } = this.$refs
+    if (this.trigger === 'click') {
+      popover.removeEventListener('click', this.onClick)
+    } else {
+      popover.removeEventListener('mouseenter', this.open)
+      popover.removeEventListener('mouseleave', this.close)
+    }
   },
   props: {
     position: {
@@ -25,6 +43,29 @@ export default {
       default: 'top',
       validator(val) {
         return ['top', 'bottom', 'left', 'right'].includes(val)
+      }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator(val) {
+        return 'click' || 'hover'
+      }
+    }
+  },
+  computed: {
+    openEvent() {
+      if (this.trigger === 'click') {
+        return 'click'
+      } else {
+        return 'mouseenter'
+      }
+    },
+    closeEvent() {
+      if (this.trigger === 'click') {
+        return 'click'
+      } else {
+        return 'mouseleave'
       }
     }
   },
