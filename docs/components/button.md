@@ -4,8 +4,9 @@ title: Button
 # 按钮
 
 使用方法
-
-<button-demos/>
+<ClientOnly>
+  <button-demos/>
+</ClientOnly>
 
 ```html
 <f-button>默认按钮</f-button>
