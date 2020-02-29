@@ -33,8 +33,11 @@
 <body style="border: 2px solid red;">
   <div id="app">
     <f-popover position="bottom">
-      <template #content>
-        <div>111</div>
+      <template #content="{ close }">
+        <div>
+          <a href="http://qq.com">看新闻</a>
+          <f-button @click="close">关闭</f-button>
+        </div>
       </template>
       <f-button>点我</f-button>
     </f-popover>
