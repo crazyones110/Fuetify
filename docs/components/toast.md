@@ -40,3 +40,86 @@ export default {
 
 **预览**
 
+<ClientOnly>
+  <toast-demos-close/>
+</ClientOnly>
+
+**代码**
+
+```vue
+<template>
+  <div>
+    <f-button @click="handleClick">上方弹出</f-button>
+  </div>
+</template>
+
+<script>
+import plugin from '../../../src/plugin'
+import Button from '../../../src/button'
+import Vue from 'vue'
+
+Vue.use(plugin)
+
+export default {
+  components: {
+    fButton: Button!
+  },
+  methods: {
+    handleClick() {
+      this.$toast('我又弹出了', {
+        closeButton: {
+          text: '好吧/无奈',
+          callback() {
+            console.log('在控制台里也能看到我!')
+          }
+        }
+      })
+    }
+  }
+}
+</script>
+```
+
+## 支持 HTML
+
+**预览**
+
+<ClientOnly>
+  <toast-demos-html/>
+</ClientOnly>
+
+**代码**
+
+```vue
+<template>
+  <div>
+    <f-button @click="handleClick">上方弹出</f-button>
+  </div>
+</template>
+
+<script>
+import plugin from '../../../src/plugin'
+import Button from '../../../src/button'
+import Vue from 'vue'
+
+Vue.use(plugin)
+
+export default {
+  components: {
+    fButton: Button
+  },
+  data() {
+    content: `
+    <a href="https://github.com">github征婚相亲交友</a>
+    `
+  },
+  methods: {
+    handleClick() {
+      this.$toast(this.content, {
+        enableHtml: true
+      })
+    }
+  }
+}
+</script>
+```

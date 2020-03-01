@@ -19,8 +19,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
->>>.gulu-toast {
-  z-index: 30;
-}
-</style>

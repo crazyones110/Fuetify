@@ -28,7 +28,7 @@ export default {
       popover.addEventListener('mouseleave', this.close)
     }
   },
-  destroyed() {
+  beforeDestroy() {
     const { popover } = this.$refs
     if (this.trigger === 'click') {
       popover.removeEventListener('click', this.onClick)
