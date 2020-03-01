@@ -33,9 +33,10 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.tabs-pane
-  padding: 1rem
-  &.active
-    // background-color: red
+<style lang="scss" scoped>
+.tabs-pane {
+    padding: 1em;
+    &.active {
+    }
+  }
 </style>

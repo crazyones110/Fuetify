@@ -3,11 +3,16 @@ title: Button
 ---
 # 按钮
 
-使用方法
+## 使用方法
+
+**预览**
+
 <ClientOnly>
   <button-demos/>
 </ClientOnly>
 
+
+**代码**
 ```html
 <f-button>默认按钮</f-button>
 <f-button loading>Loading</f-button>

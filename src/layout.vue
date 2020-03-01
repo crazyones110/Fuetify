@@ -24,11 +24,13 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-.layout
-  flex-grow: 1
-  display: flex
-  flex-direction: column
-  &.hasSider
-    flex-direction: row
+<style lang="scss" scoped>
+.layout {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  &.hasSider {
+    flex-direction: row;
+  }
+}
 </style>

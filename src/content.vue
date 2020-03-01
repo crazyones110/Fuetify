@@ -10,7 +10,8 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.content
-  flex-grow: 1
+<style lang="scss" scoped>
+.content {
+  flex-grow: 1;
+}
 </style>

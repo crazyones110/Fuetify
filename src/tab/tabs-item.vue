@@ -49,20 +49,23 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-$blue: blue
-$disabled-text-color: grey
-.tabs-item
-  padding: 0 2rem
-  flex-shrink: 0
-  cursor: pointer
-  height: 100%
-  display: flex
-  align-items: center
-  &.active
-    color: $blue
-    font-weight: bold
-  &.disabled
-    color: $disabled-text-color
-    cursor: not-allowed
+<style lang="scss" scoped>
+$blue: blue;
+  $disabled-text-color: grey;
+  .tabs-item {
+    flex-shrink: 0;
+    padding: 0 1em;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &.active {
+      color: $blue;
+      font-weight: bold;
+    }
+    &.disabled {
+      color: $disabled-text-color;
+      cursor: not-allowed;
+    }
+  }
 </style>

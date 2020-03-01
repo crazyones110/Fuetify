@@ -32,75 +32,18 @@
 </head>
 <body style="border: 2px solid red;">
   <div id="app">
-    <f-popover position="bottom">
-      <template #content="{ close }">
-        <div>
-          <a href="http://qq.com">看新闻</a>
-          <f-button @click="close">关闭</f-button>
-        </div>
-      </template>
-      <f-button>点我</f-button>
-    </f-popover>
-
-    <f-popover>
-      <template #content>
-        <div>popover内容</div>
-      </template>
-      <template #default>
-        <f-button>点我</f-button>
-      </template>
-    </f-popover>
-    <f-popover position="left">
-      <template #content>
-        <div>popover内容</div>
-      </template>
-      <template #default>
-        <f-button>点我</f-button>
-      </template>
-    </f-popover>
-    <f-popover position="right">
-      <template #content>
-        <div>popover内容</div>
-      </template>
-      <template #default>
-        <f-button>点我</f-button>
-      </template>
-    </f-popover>
-
-    <f-popover position="bottom" trigger="hover">
-      <template #content>
-        <div>111</div>
-      </template>
-      <f-button>点我</f-button>
-    </f-popover>
-
-    <f-popover trigger="hover">
-      <template #content>
-        <div>popover内容</div>
-      </template>
-      <template #default>
-        <f-button>点我</f-button>
-      </template>
-    </f-popover>
-    <f-popover position="left" trigger="hover">
-      <template #content>
-        <div>popover内容</div>
-      </template>
-      <template #default>
-        <f-button>点我</f-button>
-      </template>
-    </f-popover>
-    <f-popover position="right" trigger="hover">
-      <template #content>
-        <div>popover内容</div>
-      </template>
-      <template #default>
-        <f-button>点我</f-button>
-      </template>
-    </f-popover>
-
-
-
+    <f-tabs :selected="selected">
+      <f-tabs-head>
+        <f-tabs-item name="home">首页</f-tabs-item>
+        <f-tabs-item name="sports">体育</f-tabs-item>
+        <f-tabs-item name="beauty">美女</f-tabs-item>
+      </f-tabs-head>
+      <f-tabs-body>
+        <f-tabs-pane name="home">首页内容</f-tabs-pane>
+        <f-tabs-pane name="sports">体育内容</f-tabs-pane>
+        <f-tabs-pane name="beauty">美女内容</f-tabs-pane>
+      </f-tabs-body>
+    </f-tabs>
 
   </div>
   <script src="./src/app.js"></script>

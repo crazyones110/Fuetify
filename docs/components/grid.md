@@ -1,4 +1,213 @@
 ---
 title: Grid
 ---
+
 # 网格
+
+::: warning 提醒
+`box-sizing`必须设置为`border-box`
+:::
+
+## 24 格网格
+
+**预览**
+
+<ClientOnly>
+  <grid-demos/>
+</ClientOnly>
+
+**代码**
+
+```html
+<f-row class="demoRow">
+  <f-col span="8">
+    <div class="demoCol">8</div>
+  </f-col>
+  <f-col span="8">
+    <div class="demoCol">8</div>
+  </f-col>
+  <f-col span="8">
+    <div class="demoCol">8</div>
+  </f-col>
+</f-row>
+
+<f-row class="demoRow">
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+</f-row>
+
+<f-row class="demoRow">
+  <f-col span="4">
+    <div class="demoCol">4</div>
+  </f-col>
+  <f-col span="4">
+    <div class="demoCol">4</div>
+  </f-col>
+  <f-col span="4">
+    <div class="demoCol">4</div>
+  </f-col>
+  <f-col span="4">
+    <div class="demoCol">4</div>
+  </f-col>
+  <f-col span="4">
+    <div class="demoCol">4</div>
+  </f-col>
+  <f-col span="4">
+    <div class="demoCol">4</div>
+  </f-col>
+</f-row>
+
+<f-row class="demoRow">
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+</f-row>
+```
+
+## 设置 gutter
+
+**预览**
+
+<ClientOnly>
+  <grid-demos-gutter/>
+</ClientOnly>
+
+**代码**
+
+```html
+<f-row class="demoRow" gutter="10">
+  <f-col span="8">
+    <div class="demoCol">8</div>
+  </f-col>
+  <f-col span="8">
+    <div class="demoCol">8</div>
+  </f-col>
+  <f-col span="8">
+    <div class="demoCol">8</div>
+  </f-col>
+</f-row>
+
+<f-row class="demoRow" gutter="10">
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+  <f-col span="6">
+    <div class="demoCol">6</div>
+  </f-col>
+</f-row>
+```
+
+## 设置空隙
+
+**预览**
+
+<ClientOnly>
+  <grid-demos-offset/>
+</ClientOnly>
+
+**代码**
+
+```html
+<f-row class="demoRow" gutter="10">
+  <f-col span="8">
+    <div class="demoCol">8</div>
+  </f-col>
+  <f-col span="8" offset="8">
+    <div class="demoCol">8</div>
+  </f-col>
+</f-row>
+<f-row class="demoRow" gutter="10">
+  <f-col span="6" offset="6">
+    <div class="demoCol">6</div>
+  </f-col>
+  <f-col span="6" offset="6">
+    <div class="demoCol">6</div>
+  </f-col>
+</f-row>
+<f-row class="demoRow" gutter="10">
+  <f-col span="4">
+    <div class="demoCol">4</div>
+  </f-col>
+  <f-col span="4" offset="4">
+    <div class="demoCol">4</div>
+  </f-col>
+  <f-col span="4" offset="8">
+    <div class="demoCol">4</div>
+  </f-col>
+</f-row>
+<f-row class="demoRow" gutter="10">
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2" offset="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2" offset="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2" offset="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2">
+    <div class="demoCol">2</div>
+  </f-col>
+  <f-col span="2" offset="2">
+    <div class="demoCol">2</div>
+  </f-col>
+</f-row>
+```
