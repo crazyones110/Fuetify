@@ -48,7 +48,22 @@ new Vue({
   },
   methods: {
     showToast(position) {
-      this.$toast('很长的文字', {
+      this.$toast(`
+      asdasdasdasd
+      adasdasda
+      asdasdasdasd啊实打实大厦的
+      阿萨达
+      阿萨达
+      阿萨德撒点啊
+      阿萨达阿萨达
+      阿萨达啥
+      阿萨达啥
+      阿萨达啥都
+      啥都啥都
+      阿萨达啥d
+      啥都爱是打爱是打
+      阿萨达啥打
+      `, {
         closeButton: {
           text: '我知道了',
           callback(toast) {

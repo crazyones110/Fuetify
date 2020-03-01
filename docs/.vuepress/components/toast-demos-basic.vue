@@ -1,18 +1,3 @@
----
-title: Toast
----
-# 弹出提示
-
-## 基础使用: `this.$toast`
-
-**预览**
-
-<ClientOnly>
-  <toast-demos-basic/>
-</ClientOnly>
-
-**代码**
-```vue
 <template>
   <div>
     <f-button @click="$toast('点击弹出提示')">上方弹出</f-button>
@@ -34,9 +19,8 @@ export default {
   }
 }
 </script>
-```
-
-## 设置关闭按钮
-
-**预览**
-
+<style lang="scss" scoped>
+>>>.gulu-toast {
+  z-index: 30;
+}
+</style>

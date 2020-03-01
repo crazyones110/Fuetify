@@ -32,19 +32,9 @@
 </head>
 <body style="border: 2px solid red;">
   <div id="app">
-    <f-tabs :selected="selected">
-      <f-tabs-head>
-        <f-tabs-item name="home">首页</f-tabs-item>
-        <f-tabs-item name="sports">体育</f-tabs-item>
-        <f-tabs-item name="beauty">美女</f-tabs-item>
-      </f-tabs-head>
-      <f-tabs-body>
-        <f-tabs-pane name="home">首页内容</f-tabs-pane>
-        <f-tabs-pane name="sports">体育内容</f-tabs-pane>
-        <f-tabs-pane name="beauty">美女内容</f-tabs-pane>
-      </f-tabs-body>
-    </f-tabs>
-
+    <f-button @click="$toast('点击弹出提示top')">上方弹出</f-button>
+    <f-button @click="$toast('点击弹出提示', {position: 'middle'})">中间弹出</f-button>
+    <f-button @click="$toast('点击弹出提示', {position: 'bottom'})">下方弹出</f-button>
   </div>
   <script src="./src/app.js"></script>
   <!-- <script src="//at.alicdn.com/t/font_1597883_tyb7frq00i.js"></script> -->
