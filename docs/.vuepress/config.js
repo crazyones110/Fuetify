@@ -3,7 +3,7 @@ module.exports = {
   title: 'Fuetify UI',
   description: '一个好用的UI框架',
   head: [
-    ['link', { rel: 'icon', href: '/logo.jpg' }]
+    ['link', { rel: 'icon', href: '/vue.png' }]
   ],
   markdown: {
     lineNumbers: true
