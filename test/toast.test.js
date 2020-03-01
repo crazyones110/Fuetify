@@ -52,7 +52,7 @@ describe('Toast', () => {
           enableHtml: true
         }
       })
-      vm.$slots.default = `<strong id="test">hi</strong>`
+      vm.$slots.default = [`<strong id="test">hi</strong>`]
       vm.$mount()
       // console.log(vm.$el.outerHTML)
       const strongElement = vm.$el.querySelector('#test')

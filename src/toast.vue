@@ -71,7 +71,7 @@
       },
       close () {
         this.$el.remove()
-        this.$emit('close')
+        this.$emit('beforeClose')
         this.$destroy()
       },
       onClickClose () {

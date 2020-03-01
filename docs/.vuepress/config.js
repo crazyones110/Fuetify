@@ -1,18 +1,12 @@
 module.exports = {
+  base: '/Fuetify/',
   title: 'Fuetify UI',
   description: '一个好用的UI框架',
+  head: [
+    ['link', { rel: 'icon', href: '/logo.jpg' }]
+  ],
   markdown: {
     lineNumbers: true
-  },
-  chainWebpack: (config, isServer) => {
-    return {
-      loader: 'sass-loader',
-    options: {
-        sassOptions: {
-            indentedSyntax: true
-        }
-    }
-    }
   },
   themeConfig: {
     sidebar: [
@@ -37,6 +31,9 @@ module.exports = {
           '/components/toast'
         ]
       }
-    ]
+    ],
+    lastUpdated: '最后更新时间',
+    repo: 'https://github.com/crazyones110/Fuetify',
+    repoLabel: 'Github',
   }
 }
