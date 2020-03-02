@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       visible: false,
-    };
+    }
   },
   mounted() {
     const { popover } = this.$refs
