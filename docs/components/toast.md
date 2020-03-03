@@ -123,3 +123,16 @@ export default {
 }
 </script>
 ```
+
+**vm.$toast API**
+
+```typescript
+vm.$toast(content: string, {
+  enableHtml?: boolean,
+  position?: 'middle'|'top'|'bottom',
+  closeButton?: {
+    text: string,
+    callback: () => any
+  }
+})
+```
