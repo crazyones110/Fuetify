@@ -23,6 +23,7 @@ module.exports = {
         collapsable: false,
         children: [
           '/components/button',
+          '/components/collapse',
           '/components/grid',
           '/components/input',
           '/components/layout',
