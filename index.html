@@ -32,11 +32,12 @@
 </head>
 <body style="border: 2px solid red;">
   <div id="app">
-    <f-collapse selected="2">
+    <f-collapse :selected.sync="selected" single>
       <f-collapse-item title="title1" name="1">内容1</f-collapse-item>
       <f-collapse-item title="title2" name="2">内容2</f-collapse-item>
       <f-collapse-item title="title3" name="3">内容3</f-collapse-item>
     </f-collapse>
+    {{selected}}
   </div>
   <script src="./src/app.js"></script>
   <!-- <script src="//at.alicdn.com/t/font_1597883_tyb7frq00i.js"></script> -->

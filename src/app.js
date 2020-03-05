@@ -47,7 +47,7 @@ new Vue({
   el: '#app',
   data() {
     return {
-      selected: 'home'
+      selected: ['2', '1']
     }
   },
   methods: {

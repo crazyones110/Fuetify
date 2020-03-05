@@ -1,9 +1,9 @@
 <template>
   <div class="collapse-item">
-    <div class="title" @click="toggle">
+    <div class="title" @click="toggle" :class="{show}">
       {{title}}
     </div>
-    <div class="content" v-if="open">
+    <div class="content" v-if="show">
       <slot></slot>
     </div>
   </div>
@@ -17,36 +17,32 @@ export default {
       type: String,
       required: true
     },
-    name: String
+    name: {
+      type: String,
+      required: true
+    }
   },
   data() {
     return {
-      open: false
+      show: false
     }
   },
   inject: ['eventBus'],
   methods: {
     toggle() {
-      if (this.open) {
-        this.open = false
+      if (this.show === true) {
+        this.eventBus.$emit('close', this.name)
       } else {
-        // this.open = true
-        this.eventBus && this.eventBus.$emit('update:selected', this.name)
+        this.eventBus.$emit('open', this.name)
       }
-    },
-    close() {
-      this.open = false
-    },
-    show() {
-      this.open = true
     }
   },
   mounted() {
-    this.eventBus.$on('update:selected', (name) => {
-      if (name !== this.name) {
-        this.close()
+    this.eventBus.$on('inform', names => {
+      if (names.includes(this.name)) { // 需要开启
+        this.show = true
       } else {
-        this.show()
+        this.show = false
       }
     })
   }
@@ -70,6 +66,7 @@ $border-radius: 4px;
     }
   }
   .title {
+    cursor: pointer;
     border: 1px solid $grey;
     margin: {
       top: -1px;
