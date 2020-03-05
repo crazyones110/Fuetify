@@ -18,6 +18,8 @@ import TabsBody from './tab/tabs-body'
 import TabsItem from './tab/tabs-item'
 import TabsPane from './tab/tabs-pane'
 import Popover from './popover'
+import Collapse from './collapse/collapse'
+import CollapseItem from './collapse/collapse-item'
 
 Vue.component('f-icon', Icon)
 Vue.component('f-button', Button)
@@ -37,6 +39,8 @@ Vue.component('f-tabs-body', TabsBody)
 Vue.component('f-tabs-item', TabsItem)
 Vue.component('f-tabs-pane', TabsPane)
 Vue.component('f-popover', Popover)
+Vue.component('f-collapse', Collapse)
+Vue.component('f-collapse-item', CollapseItem)
 Vue.use(plugin)
 
 new Vue({
@@ -52,17 +56,6 @@ new Vue({
       asdasdasdasd
       adasdasda
       asdasdasdasd啊实打实大厦的
-      阿萨达
-      阿萨达
-      阿萨德撒点啊
-      阿萨达阿萨达
-      阿萨达啥
-      阿萨达啥
-      阿萨达啥都
-      啥都啥都
-      阿萨达啥d
-      啥都爱是打爱是打
-      阿萨达啥打
       `, {
         closeButton: {
           text: '我知道了',

@@ -32,12 +32,15 @@
 </head>
 <body style="border: 2px solid red;">
   <div id="app">
-    <f-button @click="$toast('点击弹出提示top')">上方弹出</f-button>
-    <f-button @click="$toast('点击弹出提示', {position: 'middle'})">中间弹出</f-button>
-    <f-button @click="$toast('点击弹出提示', {position: 'bottom'})">下方弹出</f-button>
+    <f-collapse>
+      <f-collapse-item title="title1">内容1</f-collapse-item>
+      <f-collapse-item title="title2">内容2</f-collapse-item>
+      <f-collapse-item title="title3">内容3</f-collapse-item>
+    </f-collapse>
   </div>
   <script src="./src/app.js"></script>
   <!-- <script src="//at.alicdn.com/t/font_1597883_tyb7frq00i.js"></script> -->
+  <myimport></myimport>
 </body>
 
 </html>
